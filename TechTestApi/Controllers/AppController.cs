@@ -13,9 +13,9 @@ namespace TechTestApi.Controllers
         [HttpGet]
         [Route("")]
         [Route("root")]
-        public ActionResult<object> GetAppRoot()
+        public IActionResult GetAppRoot()
         {
-            return Content("<htm><head></head><body>Hello World - <a href=\"www.google.com\">Help Page</a></body></html>", "text/html");
+            return Ok("Hello World");
         }
                 
         // GET api/app/health
@@ -38,7 +38,7 @@ namespace TechTestApi.Controllers
                     result = StatusCode(StatusCodes.Status500InternalServerError, string.Format("Status Code: {0}", StatusCodes.Status500InternalServerError));
                     break;
                 case "pirate":
-                    result = StatusCode(StatusCodes.Status401Unauthorized, Unauthorized());
+                    result = StatusCode(StatusCodes.Status401Unauthorized, string.Format("Status Code: {0}", StatusCodes.Status401Unauthorized));
                     break;
                 default:
                     result = NotFound(string.Format("Status Code: {0}", StatusCodes.Status404NotFound));
@@ -51,17 +51,17 @@ namespace TechTestApi.Controllers
         // GET api/app/info
         [HttpGet]
         [Route("info")]
-        public ActionResult<object[]> GetAppInfo()
+        public JsonResult GetAppInfo()
         {
-            var myApplication = new object[] {
+            JsonResult appInfo = new JsonResult(
                 new ApplicationInfo() {
                     Name = "MyApplication",
                     Version = 1.0,
                     Description = "Pre-interview technical test"
                 }
-            };
-
-            return Ok(myApplication);
+            );
+            
+            return appInfo;
         }
     }
 }

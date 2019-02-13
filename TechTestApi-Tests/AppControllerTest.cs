@@ -15,14 +15,14 @@ namespace TechTestApi_Tests
         }
 
         [Fact]
-        public void Root_WhenCalled_ReturnsContentResult()
+        public void Root_WhenCalled_ReturnsOkObjectResult()
         {
             // Act
-            var contentResult = _controller.GetAppRoot();
+            var result = _controller.GetAppRoot();
 
             // Assert
-            Assert.IsType<ContentResult>(contentResult.Result);
-            Assert.NotNull((contentResult.Result as ContentResult).Content);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.NotNull((result as OkObjectResult).Value);
         }
 
         [Fact]
@@ -55,11 +55,11 @@ namespace TechTestApi_Tests
         public void Info_WhenCalled_ReturnsOkResult()
         {
             // Act
-            var okResult = _controller.GetAppInfo();
+            var result = _controller.GetAppInfo();
 
             // Assert
-            Assert.IsType<OkObjectResult>(okResult.Result);
-            Assert.NotEmpty((okResult.Result as OkObjectResult).Value as object[]);
+            Assert.IsType<JsonResult>(result);
+            Assert.NotNull((result as JsonResult).Value);
         }
     }
 }
