@@ -9,6 +9,7 @@ This is a small Web API created as part of an MYOB Pre-Interview Technical Test.
 - [Prerequisites](#prerequisites)
 - [Deployment](#deployment)
 - [How To Use](#how-to-use)
+- [Associated Risks](#associated-risks)
 
 
 Prerequisites
@@ -77,7 +78,8 @@ The result will be a JSON object as the one depicted below:
 }
 ```
 
-### 4. Associated Risks
+Associated Risks
+----------------
 
 * The web API doesn’t have any sort of authentication or role-based access implemented, which pose a security risk as every single user, allowed or not allowed, will have access to every single endpoint.
 * The web API doesn’t implement any sort of mechanism to return user friendly errors, which could make the app less engaging to users.
