@@ -62,7 +62,7 @@ This endpoint can be accessed through:
 
 Any other value will return ```Status Code: 404``` (Not Found).
 
-### 3. Appication Info
+### 3. Application Info
 
 This endpoint can be accessed through:
 
