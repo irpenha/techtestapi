@@ -2,7 +2,7 @@
 
 # Technical Test API
 
-This is a small Web API created as part of an MYOB Pre-Interview Technical Test.
+This is a small Web API created as part of a Technical Test.
 
 ## Contents
 
